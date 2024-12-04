@@ -38,7 +38,17 @@ public class Mascota extends Animal {
     }
 
     @Override
-    public String describir() {
-        return "Mascota: " + getNombre() + ", Tipo: " + tipo + ", Raza: " + raza;
+    public String toString() {
+        // Título de la tabla
+        String title = "Tabla de Mascotas";
+
+        // Formateamos la tabla
+        String header = String.format("| %-15s | %-10s | %-10s | %-5s |", "Nombre", "Tipo", "Raza", "Edad");
+        String separator = "+-----------------+------------+------------+-------+";
+        String data = String.format("| %-15s | %-10s | %-10s | %-5d |", getNombre(), tipo, raza, getEdad());
+
+        // Juntamos el título con la tabla
+        return title + "\n\n" + separator + "\n" + header + "\n" + separator + "\n" + data + "\n" + separator;
     }
+
 }

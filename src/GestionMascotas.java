@@ -42,7 +42,7 @@ public class GestionMascotas {
                     nombreMascota = scanner.nextLine();
                     Mascota mascota = manager.buscarMascota(nombreMascota);
                     if (mascota != null) {
-                        System.out.println("Mascota encontrada: " + mascota.describir());
+                        System.out.println("Mascota encontrada: " + mascota); // Usando toString()
                     } else {
                         System.out.println("Mascota no encontrada.");
                     }

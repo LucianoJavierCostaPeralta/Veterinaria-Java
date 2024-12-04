@@ -26,5 +26,4 @@ public abstract class Animal {
         this.edad = edad;
     }
 
-    public abstract String describir();
 }
