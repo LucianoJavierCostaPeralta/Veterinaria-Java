@@ -30,6 +30,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
             }
         }
         return null;
+
     }
 
     @Override
@@ -43,16 +44,19 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
                 existente.setEmail(cliente.getEmail());
             }
         }
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     @Override
     public void eliminar(String nombre) {
         clientes.removeIf(cliente -> cliente.getNombre().equalsIgnoreCase(nombre));
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     @Override
     public List<Cliente> listar() {
         return new ArrayList<>(clientes);
+
     }
 
     // Método para manejar la actualización de cliente con interacción
@@ -105,6 +109,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
         } else {
             System.out.println("Cliente no encontrado.");
         }
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     // Métodos para gestionar Mascotas
@@ -114,6 +119,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
         if (cliente != null) {
             cliente.agregarMascota(mascota);
         }
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     public Mascota buscarMascota(String nombre) {
@@ -127,6 +133,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
 
     public void eliminarMascota(String nombre) {
         mascotas.removeIf(mascota -> mascota.getNombre().equalsIgnoreCase(nombre));
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     public List<Mascota> listarMascotas() {
@@ -136,6 +143,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
     // Métodos para gestionar Turnos
     public void agregarTurno(Turno turno) {
         turnos.add(turno);
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     public Turno buscarTurno(String motivo) {
@@ -149,6 +157,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
 
     public void eliminarTurno(String motivo) {
         turnos.removeIf(turno -> turno.getMotivo().equalsIgnoreCase(motivo));
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     public List<Turno> listarTurnosPorMascota(String nombreMascota) {
@@ -159,6 +168,7 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
             }
         }
         return turnosMascota;
+
     }
 
     // Método para listar todos los clientes con sus mascotas y turnos
