@@ -1,10 +1,12 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente {
+public class Cliente implements Serializable {
     private String nombre;
     private String email;
     private List<Mascota> mascotas;
+    private static final long serialVersionUID = 1L;
 
     public Cliente() {
         this.mascotas = new ArrayList<>();

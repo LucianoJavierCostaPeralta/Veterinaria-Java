@@ -11,12 +11,15 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
         this.clientes = new ArrayList<>();
         this.mascotas = new ArrayList<>();
         this.turnos = new ArrayList<>();
+
+        FileManager.cargarDatos(clientes, mascotas, turnos);
     }
 
     // Métodos de CRUD para clientes
     @Override
     public void agregar(Cliente cliente) {
         clientes.add(cliente);
+        FileManager.guardarDatos(clientes, mascotas, turnos);
     }
 
     @Override

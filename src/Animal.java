@@ -1,6 +1,9 @@
-public abstract class Animal {
+import java.io.Serializable;
+
+public abstract class Animal implements Serializable {
     private String nombre;
     private int edad;
+    private static final long serialVersionUID = 1L;
 
     public Animal() {
     }

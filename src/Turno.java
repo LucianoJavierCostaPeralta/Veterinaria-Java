@@ -1,9 +1,11 @@
+import java.io.Serializable;
 import java.util.Date;
 
-public class Turno {
+public class Turno implements Serializable {
     private Date fecha;
     private String motivo;
     private Mascota mascota;
+    private static final long serialVersionUID = 1L;
 
     public Turno() {
     }
