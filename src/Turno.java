@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.Date;
 
-public class Turno implements Serializable {
+public class Turno implements Serializable, Comparable<Turno> {
     private Date fecha;
     private String motivo;
     private Mascota mascota;
@@ -38,5 +38,11 @@ public class Turno implements Serializable {
 
     public void setMascota(Mascota mascota) {
         this.mascota = mascota;
+    }
+
+    @Override
+    public int compareTo(Turno otroTurno) {
+        // Compara las fechas, de la más reciente a la más antigua
+        return otroTurno.getFecha().compareTo(this.fecha);
     }
 }

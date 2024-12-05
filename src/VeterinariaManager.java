@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -167,12 +168,16 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
                 turnosMascota.add(turno);
             }
         }
-        return turnosMascota;
 
+        Collections.sort(turnosMascota);
+
+        return turnosMascota;
     }
 
-    // Método para listar todos los clientes con sus mascotas y turnos
     public void listarClientesConMascotasYTurnos() {
+        // Ordenar los clientes antes de mostrarlos
+        Collections.sort(clientes); // Usará el compareTo implementado en la clase Cliente
+
         for (Cliente cliente : clientes) {
             System.out.println("Cliente: " + cliente.getNombre());
             for (Mascota mascota : cliente.getMascotas()) {
@@ -183,4 +188,5 @@ public class VeterinariaManager implements CRUDOperations<Cliente> {
             }
         }
     }
+
 }

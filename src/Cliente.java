@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cliente implements Serializable {
+public class Cliente implements Serializable, Comparable<Cliente> {
     private String nombre;
     private String email;
     private List<Mascota> mascotas;
@@ -40,5 +40,10 @@ public class Cliente implements Serializable {
 
     public void agregarMascota(Mascota mascota) {
         this.mascotas.add(mascota);
+    }
+
+    @Override
+    public int compareTo(Cliente otroCliente) {
+        return this.nombre.compareTo(otroCliente.getNombre());
     }
 }
